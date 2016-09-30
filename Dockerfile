@@ -18,34 +18,6 @@ RUN apt-get update && \
 apt-get install -y software-properties-common && \
 add-apt-repository -y ppa:team-gcc-arm-embedded/ppa && \
 apt-get update && \
-# apt-get install -y apt-src \
-                  #  scons \
-                  #  mingw-w64 \
-                  #  p7zip-full \
-                  #  gawk \
-                  #  gzip \
-                  #  perl \
-# apt-get install -y autoconf \
-# apt-get install -y m4 \
-                  #  automake \
-                  #  libtool \
-                  #  libncurses5-dev \
-                  #  gettext \
-                  #  gperf \
-                  #  dejagnu \
-                  #  expect \
-                  #  tcl \
-                  #  autogen \
-                  #  guile-2.0 \
-                  #  flex \
-                  #  flip \
-                  #  bison \
-                  #  tofrodos \
-                  #  g++ \
-                  #  gcc-multilib \
-# apt-get install -y libgmp3-dev \
-                  #  libmpfr-dev \
-                  #  debhelper \
 apt-get install -y curl \
                    git \
                    python \
