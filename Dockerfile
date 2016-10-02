@@ -55,12 +55,12 @@ RUN chown -R pebble:pebble /home/pebble
 RUN sudo -EH -u pebble yes | sudo -EH -u pebble python pebble.py sdk install $SDKVER
 
 # Clean up
-RUN apt-get remove -y --purge sudo mingw-w64 gcc g++ && \
+RUN apt-get remove -y --purge sudo && \
 apt-get -y autoremove && \
+apt-get clean && \
 rm -rf /var/apt/cache && \
 rm -rf /root/.cache && \
-rm -rf /home/pebble/.cache && \
-apt-get clean
+rm -rf /home/pebble/.cache
 
 # Set the Pebble user as default
 USER pebble
