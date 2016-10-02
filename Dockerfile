@@ -26,7 +26,6 @@ apt-get install -y curl \
                    nodejs \
                    npm \
                    gcc-arm-embedded \
-                   ncdu \
                    sudo && \
 curl -s https://bootstrap.pypa.io/get-pip.py | python -
 
