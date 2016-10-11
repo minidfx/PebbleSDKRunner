@@ -4,7 +4,7 @@ FROM ubuntu:latest
 MAINTAINER Burgy Benjamin <https://twitter.com/minidfx>
 
 # Which versions?
-ENV SDKVER 4.0.1
+ENV SDKVER 4.1.4
 ENV TOOLVER v4.4.1
 
 # Fix the python result piped to another script
