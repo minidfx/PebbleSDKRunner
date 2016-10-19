@@ -18,19 +18,19 @@ ENV SUDO_FORCE_REMOVE=yes
 
 # Install Pebble dependencies
 RUN apt-get update && \
-apt-get install -y software-properties-common && \
-add-apt-repository -y ppa:team-gcc-arm-embedded/ppa && \
-apt-get update && \
-apt-get install -y curl \
-                   git \
-                   python \
-                   python-dev \
-                   libfreetype6-dev \
-                   nodejs \
-                   npm \
-                   gcc-arm-embedded \
-                   sudo && \
-curl -s https://bootstrap.pypa.io/get-pip.py | python -
+    apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:team-gcc-arm-embedded/ppa && \
+    apt-get update && \
+    apt-get install -y curl \
+                       git \
+                       python \
+                       python-dev \
+                       libfreetype6-dev \
+                       nodejs \
+                       npm \
+                       gcc-arm-embedded \
+                       sudo && \
+    curl -s https://bootstrap.pypa.io/get-pip.py | python -
 
 # Create the Pebble user
 RUN useradd -m -U pebble && \
@@ -46,11 +46,11 @@ RUN chown -R pebble:pebble /home/pebble
 WORKDIR /home/pebble/tool
 RUN pip install -r requirements.txt virtualenv sh
 RUN sudo -EH -u pebble virtualenv --no-site-packages .env && \
-sudo -EH -u pebble /bin/bash -c "source .env/bin/activate && \
-pip install -r requirements.txt && \
-deactivate" && \
-mkdir -p /home/pebble/.pebble-sdk && \
-sudo -u pebble touch /home/pebble/.pebble-sdk/ENABLE_ANALYTICS
+    sudo -EH -u pebble /bin/bash -c "source .env/bin/activate && \
+                                     pip install -r requirements.txt && \
+                                     deactivate" && \
+    mkdir -p /home/pebble/.pebble-sdk && \
+    sudo -u pebble touch /home/pebble/.pebble-sdk/ENABLE_ANALYTICS
 
 # Install the Pebble SDK
 RUN chown -R pebble:pebble /home/pebble
@@ -58,11 +58,11 @@ RUN sudo -EH -u pebble yes | sudo -EH -u pebble python pebble.py sdk install $SD
 
 # Clean up
 RUN apt-get remove -y --purge sudo && \
-apt-get -y autoremove && \
-apt-get clean && \
-rm -rf /var/apt/cache && \
-rm -rf /root/.cache && \
-rm -rf /home/pebble/.cache
+    apt-get -y autoremove && \
+    apt-get clean && \
+    rm -rf /var/apt/cache && \
+    rm -rf /root/.cache && \
+    rm -rf /home/pebble/.cache
 
 # Set the Pebble user as default
 USER pebble
