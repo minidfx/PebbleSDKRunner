@@ -5,7 +5,7 @@ MAINTAINER Burgy Benjamin <https://twitter.com/minidfx>
 
 # Which versions?
 ENV SDKVER 4.2
-ENV TOOLVER v4.4.1
+ENV TOOLVER v4.5
 
 # Fix the python result piped to another script
 ENV PYTHONIOENCODING=utf-8
