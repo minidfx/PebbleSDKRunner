@@ -10,6 +10,9 @@ ENV TOOLVER v4.4.1
 # Fix the python result piped to another script
 ENV PYTHONIOENCODING=utf-8
 
+# Ignore any console dialogs
+ENV DEBIAN_FRONTEND=noninteractive
+
 # To be able to remove the sudo command
 ENV SUDO_FORCE_REMOVE=yes
 
