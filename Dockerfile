@@ -45,8 +45,10 @@ RUN chown -R pebble:pebble /home/pebble
 # Install the python dependencies
 WORKDIR /home/pebble/tool
 RUN pip install -r requirements.txt virtualenv sh
-RUN sudo -EH -u pebble virtualenv --no-site-packages .env && \
+RUN sudo -EH -u pebble virtualenv .env && \
     sudo -EH -u pebble /bin/bash -c "source .env/bin/activate && \
+				     pip uninstall -y six && \
+                                     pip install six==1.9.0 && \
                                      pip install -r requirements.txt && \
                                      deactivate" && \
     mkdir -p /home/pebble/.pebble-sdk && \
